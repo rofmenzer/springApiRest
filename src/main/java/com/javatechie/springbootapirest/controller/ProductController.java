@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProductController {
     @Autowired
     private ProductService service;
@@ -48,6 +49,7 @@ public class ProductController {
 
     @DeleteMapping("/delete/{id}")
     public String deleteProduct (@PathVariable int id) {
-        return service.deleteProduct(id);
+        service.deleteProduct(id);
+        return null;
     }
 }

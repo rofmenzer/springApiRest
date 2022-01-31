@@ -37,13 +37,13 @@ public class ProductService {
     }
     public String deleteProduct(int id){
         repository.deleteById(id);
-        return "product removed!!" +id;
+        return "message: \"product removed!!" +id+"\"";
     }
     public Product updateProduct(Product product) {
-        Product existingProduct=repository.findById(product.getId()).orElse(null);
+    /*   Product existingProduct=repository.findById(product.getId()).orElse(null);
         existingProduct.setName(product.getName());
         existingProduct.setQuantity(product.getQuantity());
-        existingProduct.setPrice(product.getPrice());
-        return repository.save(existingProduct);
+        existingProduct.setPrice(product.getPrice());*/
+        return repository.save(product);
     }
 }

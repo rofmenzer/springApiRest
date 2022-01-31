@@ -26,6 +26,7 @@ export class ProductEditComponent implements OnInit {
     this.apiService.getItem(this.id).subscribe(response => {
       console.log(response);
       this.data = response;
+      console.log(this.data);
     })
   }
   update() {

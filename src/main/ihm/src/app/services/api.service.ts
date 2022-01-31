@@ -53,7 +53,7 @@ export class ApiService {
   // Get single student data by ID
   getItem(id: any): Observable<Product> {
     return this.http
-      .get<Product>(this.base_path + '/product/' + id)
+      .get<Product>(this.base_path + '/productById/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -73,7 +73,7 @@ export class ApiService {
   // Update item by id
   updateItem(id: any, item: any): Observable<Product> {
     return this.http
-      .put<Product>(this.base_path + '/update/' + id, JSON.stringify(item), this.httpOptions)
+      .put<Product>(this.base_path + '/update/' , JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -83,7 +83,7 @@ export class ApiService {
   // Delete item by id
   deleteItem(id: any) {
     return this.http
-      .delete<Product>(this.base_path + '/delete/' +  id, this.httpOptions)
+      .delete<string>(this.base_path + '/delete/' +  id, this.httpOptions)
       .pipe(
         shareReplay(1),
         catchError(this.handleError)
